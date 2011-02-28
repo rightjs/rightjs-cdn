@@ -1,4 +1,4 @@
-application: right-cdn
+application: rjs-cdn
 version: 1_0_0
 runtime: python
 api_version: 1

@@ -20,3 +20,6 @@ download:
 	git clone --depth 1 -q git://github.com/rightjs/rightjs-core.git    $(SOURCES_DIRECTORY)/core
 	git clone --depth 1 -q git://github.com/rightjs/rightjs-plugins.git $(SOURCES_DIRECTORY)/plugins
 	git clone --depth 1 -q git://github.com/rightjs/rightjs-ui.git      $(SOURCES_DIRECTORY)/ui
+
+deploy:
+	python google_appengine/appcfg.py update app/
