@@ -1,9 +1,7 @@
 # RightJS CDN Application
 
-RightJS CDN is a simple shared builds hosting application for
-[RightJS](http://rightjs.org)
-
-Visit http://cdn.rightjs.org to see it in action
+[RightJS CDN](http://cdn.rightjs.org) is a simple content delivery network
+application to serve [RightJS](http://rightjs.org) script builds
 
 
 ## Copyright & License
