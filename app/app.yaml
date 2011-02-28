@@ -67,3 +67,9 @@ handlers:
   static_files: builds/i18n/\1
   upload: builds/i18n/(.*)
   expiration: 10d
+
+# dependent image routes
+- url: /img/(.*)
+  static_files: builds/img/\1
+  upload: builds/img/(.*)
+  expiration: 365d
