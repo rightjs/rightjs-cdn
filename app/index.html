@@ -13,14 +13,16 @@
       <dd>
         <ul id="standard">
           <li><a href="/right.js">Latest</a></li>
-          {% for version in core %}<li><a href="/right-{{version}}.js">{{version}}</a></li>{% endfor %}
+          {% for version in core %}<li><a href="/right-{{version}}.js">{{version}}</a></li>
+          {% endfor %}
         </ul>
       </dd>
       <dt>Safe-Mode</dt>
       <dd>
         <ul id="safe-mode">
           <li><a href="/right-safe.js">Latest</a></li>
-          {% for version in safe %}<li><a href="/right-safe-{{version}}.js">{{version}}</a></li>{% endfor %}
+          {% for version in safe %}<li><a href="/right-safe-{{version}}.js">{{version}}</a></li>
+          {% endfor %}
         </ul>
       </dd>
     </dl>
@@ -32,24 +34,32 @@
       <dd>
         <ul id="{{ name }}">
           <li><a href="/plugins/{{ name }}.js">Latest</a></li>
-          {% for version in versions %}<li><a href="/plugins/{{name}}-{{version}}.js">{{version}}</a></li>{% endfor %}
+          {% for version in versions %}<li><a href="/plugins/{{name}}-{{version}}.js">{{version}}</a></li>
+          {% endfor %}
         </ul>
       </dd>
     {% endfor %}
     </dl>
 
-    <h2>UI Modules</h2>
+    <h2>UI Widgets</h2>
     <dl id="ui">
     {% for name, versions in ui %}
       <dt>{{ name|capfirst }}</dt>
       <dd>
         <ul id="{{ name }}">
           <li><a href="/ui/{{ name }}.js">Latest</a></li>
-          {% for version in versions %}<li><a href="/ui/{{name}}-{{version}}.js">{{version}}</a></li>{% endfor %}
+          {% for version in versions %}<li><a href="/ui/{{name}}-{{version}}.js">{{version}}</a></li>
+          {% endfor %}
         </ul>
       </dd>
     {% endfor %}
     </dl>
+
+    <h2>I18n Modules</h2>
+    <ul id="i18n">
+      {% for name in i18n %}<li><a href="/i18n/{{name}}.js">{{name}}</a></li>
+      {% endfor %}
+    </ul>
 
     <div id="footer">Copyright (C) 2011 Nikolay Nemshilov</div>
   </body>

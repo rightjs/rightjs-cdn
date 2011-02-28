@@ -162,20 +162,26 @@ def build_index():
             modules[key] = modules[key].items()
             modules[key].sort()
 
+    modules['i18n'] = []
+    for name in os.listdir('%s/i18n' % BUILD_DIR):
+        modules['i18n'].append(name[0:-3])
+    modules['i18n'].sort()
+
     print ' - Building index.html'
     file = open('app/static/index.html', 'w')
     file.write(template.render('app/index.html', {
         'core':    modules['core']['right'],
         'safe':    modules['core']['right-safe'],
         'plugins': modules['plugins'],
-        'ui':      modules['ui']
+        'ui':      modules['ui'],
+        'i18n':    modules['i18n']
     }))
     file.close()
 
 
 
 if __name__ == '__main__':
-    build_core()
-    build_plugins()
-    build_ui()
+#    build_core()
+#    build_plugins()
+#    build_ui()
     build_index()

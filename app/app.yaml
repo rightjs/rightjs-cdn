@@ -29,34 +29,41 @@ handlers:
 # the core files serving routes
 - url: /([^\d\/]+\.js)
   static_files: builds/core/\1
-  upload: builds/core/(.*\.js)
+  upload: builds/core/(.*)
   expiration: 10d
 
 - url: /([^\/]+\-\d+\.\d+\.\d+\.js)
   static_files: builds/core/\1
-  upload: builds/core/(.*\.js)
+  upload: builds/core/(.*)
   expiration: 365d
 
 
-# the plugins serving routes
+# the plugin serving routes
 - url: /plugins/(.*\-\d+\.\d+\.\d+\.js)
   static_files: builds/plugins/\1
-  upload: builds/plugins/(.*\.js)
+  upload: builds/plugins/(.*)
   expiration: 10d
 
 - url: /plugins/([^\d]+\.js)
   static_files: builds/plugins/\1
-  upload: builds/plugins/(.*\.js)
+  upload: builds/plugins/(.*)
   expiration: 365d
 
 
-# UI modules serving routes
+# UI module serving routes
 - url: /ui/(.*\-\d+\.\d+\.\d+\.js)
   static_files: builds/ui/\1
-  upload: builds/ui/(.*\.js)
+  upload: builds/ui/(.*)
   expiration: 10d
 
 - url: /ui/([^\d]+\.js)
   static_files: builds/ui/\1
-  upload: builds/ui/(.*\.js)
+  upload: builds/ui/(.*)
   expiration: 365d
+
+
+# i18n module routes
+- url: /i18n/(.*)
+  static_files: builds/i18n/\1
+  upload: builds/i18n/(.*)
+  expiration: 10d

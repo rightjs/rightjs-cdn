@@ -14,6 +14,7 @@ html {
 body {
   background: #F8F6F0;
   padding: 1em 10em;
+  padding-bottom: 5em;
 }
 
 h1, h2, label, dl dt {
@@ -78,4 +79,15 @@ dl dd ul {
 dl dd ul li {
   display: inline-block;
   margin-right: 1em;
+}
+
+ul#i18n {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul#i18n li {
+  display: inline-block;
+  margin-right: 1em;
+  text-transform: uppercase;
 }
