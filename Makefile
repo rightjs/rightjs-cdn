@@ -1,10 +1,11 @@
-GOOGLE_SDK_VERSION = 1.4.1
+GOOGLE_SDK_VERSION = 1.4.2
 BUILDS_DIRECTORY   = app/builds
 SOURCES_DIRECTORY  = rightjs
 
 bootstrap:
 	wget -c http://googleappengine.googlecode.com/files/google_appengine_$(GOOGLE_SDK_VERSION).zip
 	unzip google_appengine_$(GOOGLE_SDK_VERSION).zip
+	rm google_appengine_$(GOOGLE_SDK_VERSION).zip
 
 build: clean download update
 

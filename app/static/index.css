@@ -1,0 +1,81 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font: 11pt Verdana, Helvetica;
+  color: #333;
+}
+
+html {
+  padding-top: 8em;
+  padding-bottom: 4em;
+  background: #453A31;
+  position: relative;
+}
+body {
+  background: #F8F6F0;
+  padding: 1em 10em;
+}
+
+h1, h2, label, dl dt {
+  margin-top: 20pt;
+  font-weight: normal;
+  font-family: "Trebuchet MS", Garuda, sans-serif;
+  color: #7A5E44;
+}
+
+a {
+  color: #DE4200;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  position: absolute;
+  top: -.6em;
+  font-size: 4em;
+  color: white;
+  margin: 0;
+  padding: 0;
+  padding-top: 1em;
+}
+
+div#footer {
+  position: absolute;
+  bottom: 1.5em;
+  color: #F7F2F0;
+  font-size: 90%;
+}
+
+h2 {
+  border-bottom: 1px solid;
+}
+
+dl {
+  clear: both;
+}
+
+dl dt {
+  display: inline-block;
+  width: 10em;
+  vertical-align: top;
+  margin: 0;
+}
+
+dl dd {
+  display: block;
+  margin-left: 10em;
+  margin-top: -1.2em;
+  margin-bottom: 0.5em;
+}
+dl dd ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+dl dd ul li {
+  display: inline-block;
+  margin-right: 1em;
+}

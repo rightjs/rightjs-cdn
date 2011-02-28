@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RightJS CDN</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
+  </head>
+  <body>
+    <h1>RightJS CDN</h1>
+
+    <h2>RightJS Core</h2>
+    <p>
+      <dl id="core">
+        <dt>Standard</dt>
+        <dd>
+          <ul id="standard">
+            <li><a href="/right.js">Latest</a></li>
+            {% for version in core %}<li><a href="/right-{{version}}.js">{{version}}</a></li>{% endfor %}
+          </ul>
+        </dd>
+        <dt>Safe-Mode</dt>
+        <dd>
+          <ul id="safe-mode">
+            <li><a href="/right-safe.js">Latest</a></li>
+            {% for version in safe %}<li><a href="/right-safe-{{version}}.js">{{version}}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      </dl>
+    </p>
+
+    <h2>Plugins</h2>
+    <p>
+      <dl id="plugins">
+      {% for name, versions in plugins %}
+        <dt>{{ name|capfirst }}</dt>
+        <dd>
+          <ul id="{{ name }}">
+            <li><a href="/plugins/{{ name }}.js">Latest</a></li>
+            {% for version in versions %}<li><a href="/plugins/{{name}}-{{version}}.js">{{version}}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      {% endfor %}
+      </dl>
+    </p>
+
+    <h2>UI Modules</h2>
+    <p>
+      <dl id="ui">
+      {% for name, versions in ui %}
+        <dt>{{ name|capfirst }}</dt>
+        <dd>
+          <ul id="{{ name }}">
+            <li><a href="/ui/{{ name }}.js">Latest</a></li>
+            {% for version in versions %}<li><a href="/ui/{{name}}-{{version}}.js">{{version}}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      {% endfor %}
+      </dl>
+    </p>
+
+    <div id="footer">Copyright (C) 2011 Nikolay Nemshilov</div>
+  </body>
+</html>

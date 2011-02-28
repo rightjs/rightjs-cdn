@@ -1,0 +1,57 @@
+application: right-cdn
+version: 1_0_0
+runtime: python
+api_version: 1
+
+handlers:
+# the index page routes
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+  expiration: 1d
+
+- url: /index.html
+  static_files: static/index.html
+  upload: static/index.html
+  expiration: 1d
+
+- url: /index.css
+  static_files: static/index.css
+  upload: static/index.css
+  expiration: 1d
+
+
+# the core files serving routes
+- url: /([^\d\/]+\.js)
+  static_files: builds/core/\1
+  upload: builds/core/(.*\.js)
+  expiration: 10d
+
+- url: /([^\/]+\-\d+\.\d+\.\d+\.js)
+  static_files: builds/core/\1
+  upload: builds/core/(.*\.js)
+  expiration: 365d
+
+
+# the plugins serving routes
+- url: /plugins/(.*\-\d+\.\d+\.\d+\.js)
+  static_files: builds/plugins/\1
+  upload: builds/plugins/(.*\.js)
+  expiration: 10d
+
+- url: /plugins/([^\d]+\.js)
+  static_files: builds/plugins/\1
+  upload: builds/plugins/(.*\.js)
+  expiration: 365d
+
+
+# UI modules serving routes
+- url: /ui/(.*\-\d+\.\d+\.\d+\.js)
+  static_files: builds/ui/\1
+  upload: builds/ui/(.*\.js)
+  expiration: 10d
+
+- url: /ui/([^\d]+\.js)
+  static_files: builds/ui/\1
+  upload: builds/ui/(.*\.js)
+  expiration: 365d

@@ -6,6 +6,17 @@
 
 import os
 import re
+import sys
+
+# hooking up the google stuff to use templates
+sys.path.append('google_appengine')
+sys.path.append('google_appengine/lib')
+sys.path.append('google_appengine/lib/webob')
+
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
+from google.appengine.ext.webapp import template
 
 BUILD_DIR   = 'app/builds'
 DOMAIN_NAME = 'http://cdn.rightjs.org'
@@ -119,7 +130,49 @@ def build_ui():
 
 
 
+def build_index():
+    print "== Building The Index File ======================================="
+
+    print ' - Reading the files'
+    modules = {}
+
+    for key in ['core', 'plugins', 'ui']:
+        print '   + '+ key
+        modules[key] = {}
+
+        for filename in os.listdir('%s/%s' % (BUILD_DIR, key)):
+            match = re.search(r'^(.+?)\-(\d+\.\d+\.\d+)\.js', filename)
+            if match:
+                module  = match.group(1)
+                version = match.group(2)
+
+                if not module in modules[key]:
+                    modules[key][module] = []
+
+                modules[key][module].append(version)
+
+        for module in modules[key]:
+            modules[key][module].sort()
+            modules[key][module].reverse()
+
+        if key == 'plugins' or key == 'ui':
+            modules[key] = modules[key].items()
+            modules[key].sort()
+
+    print ' - Building index.html'
+    file = open('app/static/index.html', 'w')
+    file.write(template.render('app/index.html', {
+        'core':    modules['core']['right'],
+        'safe':    modules['core']['right-safe'],
+        'plugins': modules['plugins'],
+        'ui':      modules['ui']
+    }))
+    file.close()
+
+
+
 if __name__ == '__main__':
-    build_core()
-    build_plugins()
-    build_ui()
+#    build_core()
+#    build_plugins()
+#    build_ui()
+    build_index()
