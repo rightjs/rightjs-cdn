@@ -20,6 +20,11 @@ handlers:
   upload: static/index.css
   expiration: 1d
 
+- url: /favicon.ico
+  static_files: static/favicon.ico
+  upload: static/favicon.ico
+  expiration: 365d
+
 
 # the core files serving routes
 - url: /([^\d\/]+\.js)

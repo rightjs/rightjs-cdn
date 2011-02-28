@@ -51,19 +51,22 @@ def make_latest_link(category, name):
 
 def build_core():
     print "== Creating Core Builds =========================================="
-
     os.system('mkdir -p %s/core' % BUILD_DIR)
-    os.system('cd rightjs/core; node Nakefile build:safe &>/dev/null')
+
 
     print " - Making a standard build"
+    os.system('cd rightjs/core; node Nakefile build OPTIONS=no-olds &>/dev/null')
     version = get_version_num('rightjs/core/build/right.js')
     os.system('cp rightjs/core/build/right.js %s/core/right-%s.js' % (BUILD_DIR, version))
+    os.system('cp rightjs/core/build/right-olds.js %s/core/right-olds-%s.js' % (BUILD_DIR, version))
 
     print " - Making the safe-mode build"
+    os.system('cd rightjs/core; node Nakefile build:safe &>/dev/null')
     os.system('cp rightjs/core/build/right-safe.js %s/core/right-safe-%s.js' % (BUILD_DIR, version))
 
     print " - Making the latest links"
     make_latest_link('core', 'right')
+    make_latest_link('core', 'right-olds')
     make_latest_link('core', 'right-safe')
 
 
@@ -172,7 +175,7 @@ def build_index():
 
 
 if __name__ == '__main__':
-#    build_core()
-#    build_plugins()
-#    build_ui()
+    build_core()
+    build_plugins()
+    build_ui()
     build_index()
