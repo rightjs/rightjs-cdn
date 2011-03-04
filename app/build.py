@@ -181,7 +181,7 @@ def build_index():
 
 
 if __name__ == '__main__':
-#    build_core()
-#    build_plugins()
-#    build_ui()
+    build_core()
+    build_plugins()
+    build_ui()
     build_index()
