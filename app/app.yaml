@@ -1,5 +1,5 @@
 application: rjs-cdn
-version: 1_0_0
+version: 1_0_1
 runtime: python
 api_version: 1
 
