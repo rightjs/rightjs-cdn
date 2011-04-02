@@ -1,1 +1,1 @@
-resizable-2.2.2.js
+resizable-2.2.3.js
