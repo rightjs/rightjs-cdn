@@ -1,1 +1,1 @@
-jquerysh-2.2.0.js
+jquerysh-2.2.1.js

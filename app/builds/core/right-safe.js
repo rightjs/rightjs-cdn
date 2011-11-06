@@ -1,1 +1,1 @@
-right-safe-2.2.3.js
+right-safe-2.3.0.js
