@@ -55,13 +55,13 @@ def build_core():
 
 
     print " - Making a standard build"
-    os.system('cd rightjs/core; node Nakefile build OPTIONS=no-olds &>/dev/null')
+    os.system('cd rightjs/core; nake build OPTIONS=no-olds &>/dev/null')
     version = get_version_num('rightjs/core/build/right.js')
     os.system('cp rightjs/core/build/right.js %s/core/right-%s.js' % (BUILD_DIR, version))
     os.system('cp rightjs/core/build/right-olds.js %s/core/right-olds-%s.js' % (BUILD_DIR, version))
 
     print " - Making the safe-mode build"
-    os.system('cd rightjs/core; node Nakefile build:safe &>/dev/null')
+    os.system('cd rightjs/core; nake build:safe &>/dev/null')
     os.system('cp rightjs/core/build/right-safe.js %s/core/right-safe-%s.js' % (BUILD_DIR, version))
 
     print " - Making the latest links"
@@ -74,7 +74,7 @@ def build_plugins():
     print "== Building The Plugins =========================================="
     print " - Building scripts"
     os.system('mkdir -p %s/plugins' % BUILD_DIR)
-    os.system('cd rightjs/plugins; node Nakefile build &>/dev/null')
+    os.system('cd rightjs/plugins; nake build &>/dev/null')
 
     print " - Moving modules in place"
     for script in os.listdir('rightjs/plugins/build'):
@@ -92,7 +92,7 @@ def build_ui():
     print "== Building UI Modules ==========================================="
     print " - Building scripts"
     os.system('mkdir -p %s/ui' % BUILD_DIR)
-    os.system('cd rightjs/ui; node Nakefile build &>/dev/null')
+    os.system('cd rightjs/ui; nake build &>/dev/null')
 
     print " - Moving modules in place"
     for script in os.listdir('rightjs/ui/build'):
