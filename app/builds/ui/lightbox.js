@@ -1,1 +1,1 @@
-lightbox-2.2.3.js
+lightbox-2.4.0.js

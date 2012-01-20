@@ -1,1 +1,1 @@
-rails-2.3.1.js
+rails-2.3.2.js

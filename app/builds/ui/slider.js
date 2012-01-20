@@ -1,1 +1,1 @@
-slider-2.3.0.js
+slider-2.3.1.js
