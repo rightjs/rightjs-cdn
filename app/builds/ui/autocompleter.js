@@ -1,1 +1,1 @@
-autocompleter-2.2.1.js
+autocompleter-2.2.2.js

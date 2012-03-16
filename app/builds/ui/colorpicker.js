@@ -1,1 +1,1 @@
-colorpicker-2.2.2.js
+colorpicker-2.2.3.js
